@@ -3,7 +3,7 @@ var gulp = require('gulp'), //Connect Gulp
 		browserSync    = require('browser-sync'),
 		sass           = require('gulp-sass'), //Connect Sass
 		concat         = require('gulp-concat'), //Connect gulp-concut (for concatenating files)
-		uglify         = require('gulp-uglifyjs'), //Connect gulp-uglifyjs (for squeeze JS)
+		uglify         = require('gulp-uglify'), //Connect gulp-uglifyjs (for squeeze JS)
 		rename         = require('gulp-rename'), //Connect library for rename files
 		del            = require('del'), //Connect library for remove files and folders
 		imagemin       = require('gulp-imagemin'), //Connect library for working with images
@@ -33,7 +33,7 @@ gulp.task('sass', function(){
 	.pipe(sass({outputStyle: 'expand'}).on("error", notify.onError())) //Convert Sass to CSS with gulp-sass
 	.pipe(rename({suffix: '.min', prefix : ''}))//Make prefixes
 	.pipe(autoprefixer(['last 15 versions'])) 
-	.pipe(claenCSS()) //Optionally, comment out when debugging
+	.pipe(cleanCSS()) //Optionally, comment out when debugging
 	.pipe(gulp.dest('app/css')) //Transfer to the folder 'app/css'
 	.pipe(browserSync.reload({stream: true}));
 });
@@ -49,7 +49,7 @@ gulp.task('common-js', function() {
 });
 
 /* --------------------- JS ------------------------ */
-gulp.task('js' ['common-js'], function () {
+gulp.task('js' ,['common-js'], function () {
 	return gulp.src([ //Select all the necessary libraries
 		'app/libs/default/jQuery/jquery-2.1.3.min.js',
 		'app/js/common.min.js'//Always in the end
@@ -132,7 +132,7 @@ gulp.task('rsync', function() {
 gulp.task('clearcach', function () { return cache.clearAll(); });
 
 /* --------------------- REMOVEDIST------------------------ */
-gulp.task('removedist', function () { return del.sync('dist'); //Removes the folder 'dist' before assembly });
+gulp.task('removedist', function () { return del.sync('dist')}); //Removes the folder 'dist' before assembly });
 
 /* --------------------- DEFAULT ------------------------ */
 gulp.task('default', ['watch']);
