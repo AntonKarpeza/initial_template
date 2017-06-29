@@ -54,7 +54,7 @@ gulp.task('js' ,['common-js'], function () {
 		'app/libs/default/jQuery/jquery-2.1.3.min.js',
 		'app/js/common.min.js'//Always in the end
 	])
-		.pipe(concat('script.min.js')) //Collect in new file "script.min.js"
+		.pipe(concat('scripts.min.js')) //Collect in new file "scripts.min.js"
 		//.pipe(uglify()) //Compress JS-file
 		.pipe(gulp.dest('app/js')) //Transfer to the folder 'app/js'
 		.pipe(browserSync.reload({stream: true}));
@@ -69,14 +69,14 @@ gulp.task('watch',['sass' ,'js' ,'browser-sync'], function(){
 });
 
 /* --------------------- IMG ------------------------ */
-gulp.task('imgemin', function(){
+gulp.task('imagemin', function(){
 	return gulp.src('app/img/**/*')//Choose all images 
 	.pipe(cache(imagemin()))
 	.pipe(gulp.dest('dist/img')); //Transfer IMG to the folder 'dist/img'
 });
 
 /* --------------------- BUILD ------------------------ */
-gulp.task('build',['removedist', 'imgemin' ,'sass', 'js'], function(){
+gulp.task('build',['removedist', 'imagemin' ,'sass', 'js'], function(){
 
 	var buildFiles = gulp.src([
 		'app/*.html',
