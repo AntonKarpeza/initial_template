@@ -1,0 +1,117 @@
+/*owl-carousel buttons and dots style*/
+
+
+
+/***************************BUTTONS******************************/
+
+/*DEFAULT*/
+.owl-theme .owl-nav
+	-webkit-tap-highlight-color: transparent
+	&[class*='owl-']
+		display: inline-block
+		cursor: pointer
+	&.disabled
+		opacity: 0.5
+		cursor: default
+
+/* _______________________NAV-BUTTONS POSITIONS___________________________ */
+
+/*_________________________________________________________owl-FIRST(image)*/
+.owf-prev, .owf-next
+	position: absolute
+	top: 70px
+	background-color: white
+	width: 100px
+	height: 100px
+	&:hover
+		background-color: red
+
+.owl-theme .owl-nav .owf-prev /*_________prev-button*/
+	left: 0
+.owl-theme .owl-nav .owf-next /*_________next-button*/
+	right: 0
+
+/*_________________________________________________________owl-SECOND(icon)*/
+.ows-prev, .ows-next
+	position: absolute
+	color: aliceblue
+	top: 100px
+	width: 25px
+	height: 35px
+	font-size: 35px
+	background-color: cornflowerblue
+	text-align: center
+	&:hover
+		color: coral
+
+.owl-theme .owl-nav .ows-prev /*_________prev-button*/
+	left: 0
+.owl-theme .owl-nav .ows-next /*_________next-button*/
+	right: 0
+/*****************************************************************/
+
+
+
+
+
+
+
+/* **************************DOTS******************************* */
+
+/*DEFAULT*/
+.owl-theme .owl-nav.disabled + .owl-dots
+	margin-top: 10px
+
+.owl-theme .owl-dots
+	position: absolute
+	-webkit-tap-highlight-color: transparent
+
+.owl-theme .owl-dots .owl-dot
+	display: inline-block /* important!!! */
+	zoom: 1
+	*display: inline
+
+/*________________________________DOTS POSITION______________________*/
+
+
+/*_________________________________________________________owl-FIRST*/
+#owl-first .owl-dots
+	position: absolute
+	top: 450px
+	right: 70%
+	.owl-dot
+		span
+			width: 20px
+			height: 20px
+			margin: 5px 7px
+			background: orange
+			display: block
+			-webkit-backface-visibility: visible
+			transition: opacity 200ms ease
+			/*border-radius: 30px;*/
+			&:hover
+				background: aquamarine
+	.owl-dot.active
+		span
+			background: white
+/*_________________________________________________________owl-SECOND*/
+#owl-second .owl-dots
+	position: absolute
+	top: 400px
+	right: 5%
+	.owl-dot
+		span
+			width: 15px
+			height: 15px
+			margin: 5px 7px
+			background: red
+			display: block
+			-webkit-backface-visibility: visible
+			transition: opacity 200ms ease
+			border-radius: 40px
+			&:hover
+				background: black
+	.owl-dot.active
+		span
+			background: antiquewhite
+/***********************************************************************/
